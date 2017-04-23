@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="arun">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="Few JS functions added, can implement lots, can keep js in separate files">
+  <title>Form</title>
+  </head>
+  <script type="text/javascript">
+  function checkNumber(){
+	  var n = document.getElementById('phoneno').value;
+	 
+	if(isNaN(n)){
+	alert('Contact Number should be numeric');
+  }
+  }
+
+  function checkEmail() {
+	var  email = document.getElementById('email').value;
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if(!re.test(email)){
+		alert('Please enter valid email address');
+	}
+}
+function showArea(){
+	
+ var row =  document.getElementById("area");
+	row.style.display = '';
+}
+function onloadform(){
+	//alert('onload');
+	var row =  document.getElementById("area");
+	row.style.display = 'none';
+}
+  </script>
+ 
+ <body onload="onloadform()">
+  <form action="/login" method="post">
+  <table border='0' width='100%'>
+	<tr>
+	<td>
+	
+    First Name
+	</td>
+	<td>
+    <input type="text" name="firstname" size='30'>
+	</td>
+   <tr>
+   <td>
+    Last Name
+	</td>
+	<td>
+    <input type="text" name="password" size='30'>
+  </td>
+  </tr>
+  <tr>
+	<td>
+	
+    Sex
+	</td>
+	<td >
+   <input type="radio" name="sex" value="male"> Male
+	<input type="radio" name="sex" value="female"> Female
+
+	</td>
+   <tr>
+  <tr>
+	<td>
+	
+    Contact Number
+	</td>
+	<td >
+    <input type="text" name="contactno" size='30' onchange="checkNumber();" id="phoneno" value="">
+	</td>
+   <tr><tr>
+	<td>
+	
+    Email
+	</td>
+	<td >
+    <input type="text" name="email" size='30' onchange="checkEmail();" id="email" value="">
+	</td>
+   </tr>
+   <tr>
+	<td>
+	
+    Country
+	</td>
+	<td >
+    <input type="text" name="country" size='30' value="Singapore" disabled>
+	</td>
+   </tr>
+   <tr>
+	<td>
+	
+    Location
+	</td>
+	<td >
+  <select name="location" onchange="showArea()">
+  <option value="" selected>-Select-</option>
+  <option value="South">South</option>
+  <option value="West">West</option>
+  <option value="East">Sunday</option>
+</select>
+
+	</td>
+   </tr>
+   <tr id="area">
+   
+	<td>
+	
+    Area
+	</td>
+	<td >
+    <input type="text" name="areaval" size='30' value="City Hall">
+	</td>
+   </tr>
+</fieldset>
+  </table>
+
+</form>
+
+ </body>
+</html>
